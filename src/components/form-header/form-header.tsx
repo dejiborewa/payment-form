@@ -34,7 +34,7 @@ const FormHeader = ({ children }: Props) => {
   return (
     <section className="w-[80%] absolute left-1/2 top-[10%] -translate-x-1/2 md:w-[70%] lg:w-[60%] xl:w-[40%]">
       <header>
-        <h1 className="text-blue font-[700] text-[18px] md:text-[24px] xl:text-[30px]">
+        <h1 className="text-blue font-[700] text-[20px] md:text-[24px] xl:text-[30px]">
           Complete your Purchase
         </h1>
       </header>
