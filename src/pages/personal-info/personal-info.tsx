@@ -11,6 +11,7 @@ import { useState } from "react";
 const PersonalInfo = () => {
   const form = useAppSelector((state) => state.form.value);
   const { personalInfo } = form;
+  console.log(form);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ const PersonalInfo = () => {
         address1: formState.address1,
         address2: formState.address2,
         localGovt: formState.localGovt,
+        state: formState.state,
       })
     );
     navigate("/billing-info");
@@ -93,7 +95,12 @@ const PersonalInfo = () => {
             </div>
 
             <div className="w-[38%]">
-              <Dropdown name="State" list={["Lagos", "Ogun", "Abia"]} required={false} />
+              <Dropdown
+                name="state"
+                label="State"
+                list={["Lagos", "Ogun", "Abia"]}
+                required={false}
+              />
             </div>
           </div>
           <SubmitCancelBtn name="Next" />

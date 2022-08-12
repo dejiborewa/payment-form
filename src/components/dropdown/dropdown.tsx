@@ -6,9 +6,10 @@ interface Props {
   list: string[];
   name: string;
   required: boolean;
+  label: string;
 }
 
-const Dropdown = ({ list, name, required }: Props) => {
+const Dropdown = ({ list, name, required, label }: Props) => {
   const [openDropdown, setOpenDropdown] = useState(false);
   const [currentSelection, setCurrentSelection] = useState(list[0]);
 
@@ -34,7 +35,7 @@ const Dropdown = ({ list, name, required }: Props) => {
   return (
     <div className="relative" id="dropdown">
       <span className="flex items-center text-black font-[700] mb-3">
-        {name}
+        {label}
 
         <>{required && asterick}</>
       </span>

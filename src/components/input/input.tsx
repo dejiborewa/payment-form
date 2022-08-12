@@ -26,25 +26,6 @@ const Input = ({
   detailsText,
   inputmode,
 }: Props) => {
-  // function handleChange(e: any) {
-  //   setInputValue(e.target.value);
-
-  //   if (e.target.name === "cardDetails") {
-  //     e.target.maxLength = 23;
-  //     if (
-  //       e.target.value.length === 5 ||
-  //       e.target.value.length === 11 ||
-  //       e.target.value.length === 17
-  //     ) {
-  //       setInputValue(e.target.value + " ");
-  //     }
-  //   }
-
-  //   if (e.target.name === "cvv") {
-  //     e.target.maxLength = 3;
-  //   }
-  // }
-
   return (
     <label htmlFor={name} className="block my-4">
       <span className="text-black font-[700] flex items-center mb-3">

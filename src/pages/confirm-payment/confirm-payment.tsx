@@ -4,7 +4,6 @@ import { naira } from "../../assets/naira";
 import FormHeader from "../../components/form-header/form-header";
 import SubmitCancelBtn from "../../components/submit-cancel-btn/submit-cancel-btn";
 import Layout from "../../layout/layout";
-import { useAppSelector } from "../../store/typedHooks";
 
 const Container = styled.div`
   box-shadow: 0px 10px 15px rgba(33, 30, 67, 0.08);
@@ -42,7 +41,7 @@ const ConfirmPayment = () => {
               </div>
 
               <div className="border-t border-lightPurple -mx-2">
-                <div className="flex justify-between border border-lightPurple rounded-[5px] w-[95%] mx-auto mt-4 p-2">
+                <div className="flex justify-between border border-lightPurple rounded-[5px] w-[95%] mx-auto mt-6 p-2">
                   <div>Total</div>
                   <div>50,000.00</div>
                 </div>
