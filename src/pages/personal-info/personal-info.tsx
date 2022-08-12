@@ -4,13 +4,37 @@ import SubmitCancelBtn from "../../components/submit-cancel-btn/submit-cancel-bt
 import Layout from "../../layout/layout";
 import Dropdown from "../../components/dropdown/dropdown";
 import { useNavigate } from "react-router-dom";
+import { updatePersonalInfo } from "../../feature/updateForm";
+import { useAppDispatch, useAppSelector } from "../../store/typedHooks";
+import { useState } from "react";
 
 const PersonalInfo = () => {
+  const form = useAppSelector((state) => state.form.value);
+  const { personalInfo } = form;
+
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const [formState, setFormState] = useState(personalInfo);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    dispatch(
+      updatePersonalInfo({
+        name: formState.name,
+        email: formState.email,
+        address1: formState.address1,
+        address2: formState.address2,
+        localGovt: formState.localGovt,
+      })
+    );
     navigate("/billing-info");
+  };
+
+  const handleChange = (e: any) => {
+    setFormState((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
   };
 
   return (
@@ -23,6 +47,8 @@ const PersonalInfo = () => {
             placeholder="Opara Linus Ahmed"
             type="text"
             required={false}
+            value={formState.name}
+            onChange={(e) => handleChange(e)}
           />
           <Input
             label="Email Address"
@@ -32,6 +58,8 @@ const PersonalInfo = () => {
             details={true}
             detailsText="The purchase receipt would be sent to this address"
             required={true}
+            value={formState.email}
+            onChange={(e) => handleChange(e)}
           />
           <Input
             label="Address 1"
@@ -39,6 +67,8 @@ const PersonalInfo = () => {
             placeholder="12, Ojuelegba Street, Lagos"
             type="text"
             required={false}
+            value={formState.address1}
+            onChange={(e) => handleChange(e)}
           />
           <Input
             label="Address 2"
@@ -46,6 +76,8 @@ const PersonalInfo = () => {
             placeholder="12, Ojuelegba Street, Lagos"
             type="text"
             required={false}
+            value={formState.address2}
+            onChange={(e) => handleChange(e)}
           />
           <div className="flex items-center justify-between">
             <div className="w-[58%]">
@@ -55,6 +87,8 @@ const PersonalInfo = () => {
                 placeholder="Surulere"
                 type="text"
                 required={false}
+                value={formState.localGovt}
+                onChange={(e) => handleChange(e)}
               />
             </div>
 

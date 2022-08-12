@@ -1,20 +1,24 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { asterick } from "../../assets/asterick";
 
 interface Props {
   name: string;
   label: string;
+  value?: string;
   placeholder: string;
   required: boolean;
   type: string;
   details?: boolean;
   detailsText?: string;
   inputmode?: "numeric";
+  onChange?: (e: any) => void;
 }
 
 const Input = ({
   name,
   label,
+  value,
+  onChange,
   placeholder,
   required,
   type,
@@ -22,26 +26,24 @@ const Input = ({
   detailsText,
   inputmode,
 }: Props) => {
-  const [inputValue, setInputValue] = useState("");
+  // function handleChange(e: any) {
+  //   setInputValue(e.target.value);
 
-  function handleChange(e: any) {
-    setInputValue(e.target.value);
+  //   if (e.target.name === "cardDetails") {
+  //     e.target.maxLength = 23;
+  //     if (
+  //       e.target.value.length === 5 ||
+  //       e.target.value.length === 11 ||
+  //       e.target.value.length === 17
+  //     ) {
+  //       setInputValue(e.target.value + " ");
+  //     }
+  //   }
 
-    if (e.target.name === "cardDetails") {
-      e.target.maxLength = 23;
-      if (
-        e.target.value.length === 5 ||
-        e.target.value.length === 11 ||
-        e.target.value.length === 17
-      ) {
-        setInputValue(e.target.value + " ");
-      }
-    }
-
-    if (e.target.name === "cvv") {
-      e.target.maxLength = 3;
-    }
-  }
+  //   if (e.target.name === "cvv") {
+  //     e.target.maxLength = 3;
+  //   }
+  // }
 
   return (
     <label htmlFor={name} className="block my-4">
@@ -56,8 +58,8 @@ const Input = ({
         id={name}
         name={name}
         type={type}
-        value={inputValue}
-        onChange={(e) => handleChange(e)}
+        value={value}
+        onChange={onChange}
         placeholder={placeholder}
         required={required}
         inputMode={inputmode}

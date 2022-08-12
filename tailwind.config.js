@@ -10,7 +10,9 @@ module.exports = {
         lightOrange: "#F2C94C",
         offWhite: "#F7F7FF",
         gray: "#BDBDBD",
-        lightPurple: "#817E9E"
+        lightPurple: "#817E9E",
+        brightBlue: "#2F80ED",
+        gray2: "#4F4F4F",
       },
       borderColor: {
         purple: "rgba(78, 89, 140, 1)",

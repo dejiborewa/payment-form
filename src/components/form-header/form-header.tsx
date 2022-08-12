@@ -1,19 +1,4 @@
 import { useLocation } from "react-router-dom";
-// import styled from "styled-components";
-
-// const ListItems = styled.li`
-//   :nth-child(1) {
-//     padding-right: 0.5em;
-//   }
-
-//   :nth-child(2) {
-//     padding: 0 0.5em;
-//   }
-
-//   :nth-child(3) {
-//     padding-right: 0.5em;
-//   }
-// `;
 
 interface Props {
   children: React.ReactNode;
@@ -62,3 +47,18 @@ const FormHeader = ({ children }: Props) => {
 };
 
 export default FormHeader;
+// import styled from "styled-components";
+
+// const ListItems = styled.li`
+//   :nth-child(1) {
+//     padding-right: 0.5em;
+//   }
+
+//   :nth-child(2) {
+//     padding: 0 0.5em;
+//   }
+
+//   :nth-child(3) {
+//     padding-right: 0.5em;
+//   }
+// `;

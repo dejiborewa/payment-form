@@ -1,18 +1,17 @@
-import { useState } from "react";
 import { asterick } from "../../assets/asterick";
 
 interface Props {
   name: string;
   label: string;
   type: string;
+  value: string;
+  onChange: (e: any) => void;
   details?: boolean;
   detailsText?: string;
   inputmode?: "numeric";
 }
 
-const ExpiryDate = ({ name, label, type, inputmode }: Props) => {
-  const [inputValue, setInputValue] = useState("");
-
+const ExpiryDate = ({ name, label, type, value, onChange, inputmode }: Props) => {
   return (
     <label htmlFor={name} className="block relative my-4">
       <span className="text-black font-[700] flex items-center mb-3">
@@ -21,17 +20,17 @@ const ExpiryDate = ({ name, label, type, inputmode }: Props) => {
       </span>
 
       <span className="block border border-purple p-2 rounded-[10px] text-center mx-auto">
-        {inputValue[0]}
-        {inputValue[1]}/{inputValue[2]}
-        {inputValue[3]}
+        {value[0]}
+        {value[1]}/{value[2]}
+        {value[3]}
       </span>
       <input
         id={name}
         name={name}
         maxLength={4}
         type={type}
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
+        value={value}
+        onChange={onChange}
         inputMode={inputmode}
         className="absolute top-[50%] opacity-0 w-full p-2 rounded-[10px] border border-purple outline-0"
         required
